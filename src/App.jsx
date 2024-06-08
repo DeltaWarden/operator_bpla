@@ -1,9 +1,7 @@
 import "./App.css";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import MainPage from './pages/connectpage/connectpage.jsx'
-import ErrorPage from './pages/main/main.jsx'
-import NotFoundPage from './pages/main/main.jsx'
-import NotificationsPage from './pages/main/main.jsx'
+import LoginPage from './pages/loginpage/loginpage'
+import TestPage from './pages/testpage/testpage'
 
 
 
@@ -12,19 +10,14 @@ export default function App() {
     const router = createBrowserRouter([
         {
             path: "/",
-            errorElement: <ErrorPage />,
             children: [
                 {
-                    path: "/*",
-                    element: <NotFoundPage />
-                },
-                {
                     path: "/",
-                    element: <MainPage />
+                    element: <LoginPage />
                 },
                 {
-                    path: "/main",
-                    element: <NotificationsPage />
+                    path: "/test",
+                    element: <TestPage />
                 }
             ]
         },

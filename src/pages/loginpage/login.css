@@ -1,4 +1,6 @@
 .wrapper-login {
+    margin: 0 auto;
+    text-align: center;
     background-color: rgba(24, 24, 24, 0.9);
     width: 600px;
     height: 400px;

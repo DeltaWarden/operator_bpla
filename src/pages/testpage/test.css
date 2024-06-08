@@ -1,0 +1,17 @@
+body {
+    font-family: sans-serif;
+}
+
+#shape {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    display: none;
+    position: absolute;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+}
