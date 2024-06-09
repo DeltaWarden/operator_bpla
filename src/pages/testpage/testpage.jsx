@@ -30,7 +30,9 @@ function map(num, inInterval, outInterval) {
 const testpage = () => {
   const [height, setHeight] = useState(window.innerHeight);
   const [width, setwidth] = useState(window.innerWidth);
-  const [avgTime, setAvgTime] = useState(null)
+  const [avgTime, setAvgTime] = useState(null);
+  const [testPassed, setTestPassed] = useState(false);
+  const [testFailed, setTestFailed] = useState(false);
     const shape = useRef()
     const testsInTotal = 10;
     let passedTests = 0;
@@ -66,6 +68,12 @@ const testpage = () => {
       if (passedTests === testsInTotal) {
         setAvgTime(Math.round(getAverage(times)*1000));
         console.log(avgTime);
+        if (200 <= avgTime <= 650) {
+          setTestPassed(true);
+        }
+        else {
+          setTestFailed(true);
+        }
       }
       else {
         appearAfterDelay();
@@ -95,11 +103,14 @@ const testpage = () => {
     return (
       <>
         <div className="card">
-            <h5 className="card-header">Pilot Test</h5>
-            {avgTime && `Среднее время: ${avgTime}ms` }
-            {avgTime && <form action="/main" target="_blank">
-   <button>Далее</button>
-  </form>}
+            <h5 className="card-header">Тест реакции пилота</h5>
+            {testPassed && `Среднее время: ${avgTime}ms` }
+            {testPassed && 
+              <form action="/main" target="_blank">
+                <button>Приступить</button>
+              </form>
+            }
+            {testFailed && <h5>Вы не прошли тест, у вас ещё 2 попытки</h5>}
         </div>
         <div id="shape" ref={shape} onClick={handelClick}></div>
       </>
