@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { useNavigate } from "react-router-dom";
+
 import "./test.css"
 
 const getRandomColor = () => {
@@ -28,6 +30,8 @@ function map(num, inInterval, outInterval) {
 }
 
 const testpage = () => {
+  const navigate = useNavigate();
+
   const [height, setHeight] = useState(window.innerHeight);
   const [width, setwidth] = useState(window.innerWidth);
   const [avgTime, setAvgTime] = useState();
@@ -102,14 +106,16 @@ const testpage = () => {
         shape.current.style.display = "block";
         start = new Date().getTime();
     }
-
+    const submitted = () => {
+      navigate("/main")
+    }
     return (
       <>
         <div className="card">
             <h5 className="card-header">Тест реакции пилота</h5>
             {testPassed && `Среднее время: ${avgTime}ms` }
             {testPassed && 
-              <form action="/main" target="_blank">
+              <form onSubmit={submitted}>
                 <button>Приступить</button>
               </form>
             }
