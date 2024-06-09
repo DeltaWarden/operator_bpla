@@ -96,7 +96,10 @@ const testpage = () => {
       <>
         <div className="card">
             <h5 className="card-header">Pilot Test</h5>
-            {avgTime && `Среднее время: ${avgTime}ms`}
+            {avgTime && `Среднее время: ${avgTime}ms` }
+            {avgTime && <form action="/main" target="_blank">
+   <button>Далее</button>
+  </form>}
         </div>
         <div id="shape" ref={shape} onClick={handelClick}></div>
       </>
