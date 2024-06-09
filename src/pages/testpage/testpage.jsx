@@ -30,7 +30,7 @@ function map(num, inInterval, outInterval) {
 const testpage = () => {
   const [height, setHeight] = useState(window.innerHeight);
   const [width, setwidth] = useState(window.innerWidth);
-  const [avgTime, setAvgTime] = useState(null);
+  const [avgTime, setAvgTime] = useState();
   const [testPassed, setTestPassed] = useState(false);
   const [testFailed, setTestFailed] = useState(false);
     const shape = useRef()
@@ -66,13 +66,16 @@ const testpage = () => {
       times.push((end - start) / 1000)
       passedTests++;
       if (passedTests === testsInTotal) {
-        setAvgTime(Math.round(getAverage(times)*1000));
+        let avgTime = Math.round(getAverage(times)*1000)
+        setAvgTime(avgTime);
         console.log(avgTime);
-        if (200 <= avgTime <= 650) {
+        if (200 <= avgTime && avgTime <= 600) {
           setTestPassed(true);
+          console.log('+');
         }
         else {
           setTestFailed(true);
+          console.log('-');
         }
       }
       else {
