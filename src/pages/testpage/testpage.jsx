@@ -62,6 +62,8 @@ const testpage = () => {
       setTimeout(makeShapeAppear, Math.random() * 2000);
     }
     
+    const [CountFails, setCountFails] = useState(0);
+    const countfails1 = useState(1);
 
     const handelClick = (e) => {
       console.log('клик');
@@ -80,12 +82,16 @@ const testpage = () => {
         else {
           setTestFailed(true);
           console.log('-');
+          setCountFails(CountFails + countfails1)
+          console.log(CountFails)
         }
       }
       else {
         appearAfterDelay();
       }
     }
+    
+
 
     const makeShapeAppear = () =>  {
       console.log('сделать видимым');
