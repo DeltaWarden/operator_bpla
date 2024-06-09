@@ -119,7 +119,7 @@ const testpage = () => {
                 <button>Приступить</button>
               </form>
             }
-            {testFailed && <h5>Вы не прошли тест, у вас ещё 2 попытки</h5>}
+            {testFailed && <h5>Вы не прошли тест, у вас ещё {3} попытки</h5>}
         </div>
         <div id="shape" ref={shape} onClick={handelClick}></div>
       </>
